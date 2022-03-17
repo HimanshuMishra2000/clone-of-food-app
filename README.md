@@ -5,8 +5,5 @@
 * Implemented search functionality using JS debouncing to minimize the unnecessary api calls.
 
 <!-- [![Demo](https://imgur.com/gallery/txptynB)](https://drive.google.com/file/d/1kpbqYqV3H0mj08VyV3xgdTpaoDfpzfMX/view?usp=sharing) -->
-## ScreenShot
-
-![Food-Search-App]("./img/Screenshot (150).png")
 
 
