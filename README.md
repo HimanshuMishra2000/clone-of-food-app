@@ -6,4 +6,4 @@
 
 <!-- [![Demo](https://imgur.com/gallery/txptynB)](https://drive.google.com/file/d/1kpbqYqV3H0mj08VyV3xgdTpaoDfpzfMX/view?usp=sharing) -->
 
-
+<img src="https://github.com/HimanshuMishra2000/clone-of-food-app/blob/main/img/Screenshot%20(150).png?raw=true">
