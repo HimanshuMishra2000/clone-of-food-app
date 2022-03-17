@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mishra-Food-App</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <style>
+      #data {
+        width: 80vw;
+        margin: 10px auto;
+        display: flex;
+        flex-direction: column;
+        letter-spacing: 3px;
+        line-height: 35px;
+        /* text-align: center; */
+      }
+      #data img {
+        width: 40%;
+        height: 400px;
+        margin: 10px 20px;
+        float: left;
+      }
+      #data div {
+        border-bottom: 1px solid darkgrey;
+      }
+      #data a:hover {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav"></div>
+
+    <div id="data"></div>
+  </body>
+</html>
+<script type="module">
+  import navbar from "./components/navbar.js";
+  import { getData } from "./scripts/showData.js";
+  document.querySelector(".nav").innerHTML = navbar();
+
+  let response = getData(
+    "https://www.themealdb.com/api/json/v1/1/search.php?f=a"
+  );
+
+  console.log("response:", response);
+  response.then((data) => {
+    let meals = data.meals;
+    console.log("meals:", meals);
+
+    let data_div = document.getElementById("data");
+
+    meals.forEach((meal) => {
+      let meal_div = document.createElement("div");
+
+      let name = document.createElement("h1");
+      name.innerText = meal.strMeal;
+
+      let img = document.createElement("img");
+      img.src = meal.strMealThumb;
+
+      let category = document.createElement("h4");
+      category.innerText = `Area/Type: ${meal.strArea} || ${meal.strCategory}`;
+
+      let link = document.createElement("a");
+      console.log("link:", link);
+      link.innerHTML = `Get more detail at:<br/> ${meal.strSource}`;
+      link.href = `${meal.strSource}`;
+
+      meal_div.append(img, name, category, link);
+
+      data_div.append(meal_div);
+    });
+  });
+</script>
